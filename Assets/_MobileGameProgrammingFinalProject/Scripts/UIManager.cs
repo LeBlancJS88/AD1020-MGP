@@ -22,13 +22,17 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject stressUpgradeTab;
     [SerializeField] private GameObject stressGeneratorsButton;
     [SerializeField] private GameObject stressGeneratorsTab;
-    
+
 
     [SerializeField] private GameObject optionsButton;
     [SerializeField] private GameObject optionsMenuCloseButton;
     [SerializeField] private GameObject optionsPanel;
 
     [SerializeField] private GameObject ClickAreaPanel;
+
+    internal float tickTimer = 0f;
+
+    internal bool stressGeneratorUnlocked = false;
 
     private void Start()
     {
@@ -42,10 +46,31 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
+        tickTimer += Time.deltaTime;
+
+        if (tickTimer >= 1f)
+        {
+            tickTimer = 0f;
+            CheckForAnxietyTabUnlock();
+
+            CheckForStressGeneratorsUnlock();
+        }
+    }
+
+    private void CheckForStressGeneratorsUnlock()
+    {
+        if (stressManager.stressCount >= 1000 && !stressGeneratorUnlocked)
+        {
+            stressGeneratorUnlocked = true;
+            stressGeneratorsButton.SetActive(true);
+        }
+    }
+
+    private void CheckForAnxietyTabUnlock()
+    {
         if (stressManager.stressCount >= 1000)
         {
             anxietyTabButton.SetActive(true);
-            stressGeneratorsButton.SetActive(true);
         }
     }
 

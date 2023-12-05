@@ -10,18 +10,17 @@ public class StressManager : MonoBehaviour
     // Display Text
 
     // Stress Text
-    [SerializeField] private TMP_Text stressText;
-    internal double stressCount;
-    internal double stressMaximumValue;
+    [SerializeField] internal TMP_Text stressText;
+    [SerializeField] public double stressCount;
 
     // Stress Upgrade Button
-    [SerializeField] private TMP_Text stressUpgradeText;
+    [SerializeField] internal TMP_Text stressUpgradeText;
     [SerializeField] internal double stressUpgradeCost;
     internal double stressUpgradeAmount;
 
 
     // Stress Multiplier Button
-    [SerializeField] private TMP_Text stressMultiplierText;
+    [SerializeField] internal TMP_Text stressMultiplierText;
     [SerializeField] internal double stressMultiplierCost;
     internal float stressMultiplierAmount;
 
