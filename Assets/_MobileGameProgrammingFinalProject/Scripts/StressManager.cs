@@ -12,6 +12,7 @@ public class StressManager : MonoBehaviour
     // Stress Text
     [SerializeField] private TMP_Text stressText;
     internal double stressCount;
+    internal double stressMaximumValue;
 
     // Stress Upgrade Button
     [SerializeField] private TMP_Text stressUpgradeText;
@@ -29,7 +30,7 @@ public class StressManager : MonoBehaviour
     {
         stressCount = 0;
         stressUpgradeCost = 10;
-        stressUpgradeAmount = 0.01;
+        stressUpgradeAmount = 0.1;
         stressMultiplierAmount = 1;
         stressMultiplierCost = 100;
     }
@@ -51,8 +52,8 @@ public class StressManager : MonoBehaviour
         if (stressCount >= stressUpgradeCost)
         {
         stressCount -= stressUpgradeCost;
-        stressUpgradeAmount += 0.01;
-        stressUpgradeCost += 0.1;
+        stressUpgradeAmount += 0.1;
+        stressUpgradeCost *= 1.5;
         }
     }
 

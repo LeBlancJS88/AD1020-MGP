@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class GeneratorManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private StressManager stressManager;
+    [SerializeField] private UIManager uiManager;
+
+    [SerializeField] private GameObject stressGeneratorLevelOneButton;
+    [SerializeField] private GameObject stressGeneratorLevelTwoButton;
+
+    void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    private void StressGeneratorLevelOneClick() {         
         
+        if (stressManager.stressMaximumValue >= 1000)
+        {
+            
+        }
     }
 }

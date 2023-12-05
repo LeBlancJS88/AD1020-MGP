@@ -12,10 +12,17 @@ public class UIManager : MonoBehaviour
     [SerializeField] internal GameObject anxietyTabButton;
     [SerializeField] internal GameObject depressionTabButton;
     [SerializeField] internal GameObject burnoutTabButton;
+
     [SerializeField] private GameObject stressTab;
     [SerializeField] private GameObject anxietyTab;
     [SerializeField] private GameObject depressionTab;
     [SerializeField] private GameObject burnoutTab;
+
+    [SerializeField] private GameObject stressUpgradeButton;
+    [SerializeField] private GameObject stressUpgradeTab;
+    [SerializeField] private GameObject stressGeneratorsButton;
+    [SerializeField] private GameObject stressGeneratorsTab;
+    
 
     [SerializeField] private GameObject optionsButton;
     [SerializeField] private GameObject optionsMenuCloseButton;
@@ -29,6 +36,8 @@ public class UIManager : MonoBehaviour
         anxietyTab.SetActive(false);
         depressionTab.SetActive(false);
         burnoutTab.SetActive(false);
+        stressGeneratorsButton.SetActive(false);
+        stressGeneratorsTab.SetActive(false);
     }
 
     private void Update()
@@ -36,6 +45,7 @@ public class UIManager : MonoBehaviour
         if (stressManager.stressCount >= 1000)
         {
             anxietyTabButton.SetActive(true);
+            stressGeneratorsButton.SetActive(true);
         }
     }
 
@@ -45,6 +55,18 @@ public class UIManager : MonoBehaviour
         anxietyTab.SetActive(false);
         depressionTab.SetActive(false);
         burnoutTab.SetActive(false);
+    }
+
+    public void StressUpgradeTabClick()
+    {
+        stressUpgradeTab.SetActive(true);
+        stressGeneratorsTab.SetActive(false);
+    }
+
+    public void StressGeneratorTabClick()
+    {
+        stressUpgradeTab.SetActive(false);
+        stressGeneratorsTab.SetActive(true);
     }
 
     public void AnxietyTabClick()
