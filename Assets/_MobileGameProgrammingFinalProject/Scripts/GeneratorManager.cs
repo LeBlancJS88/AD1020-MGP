@@ -18,12 +18,12 @@ public class GeneratorManager : MonoBehaviour
     [SerializeField] private TMP_Text stressGeneratorLevelTwoButtonText;
 
     // Level One Stress Generator Variables
-    private double stressGeneratorLevelOneAmount = 0;
-    private double stressGeneratorLevelOneCost = 1000;
+    internal double stressGeneratorLevelOneAmount = 0;
+    internal double stressGeneratorLevelOneCost = 1000;
 
     // Level Two Stress Generator Variables
-    private double stressGeneratorLevelTwoAmount = 0;
-    private double stressGeneratorLevelTwoCost = 10000;
+    internal double stressGeneratorLevelTwoAmount = 0;
+    internal double stressGeneratorLevelTwoCost = 10000;
 
 
     void Update()

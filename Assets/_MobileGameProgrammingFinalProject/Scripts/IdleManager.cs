@@ -20,7 +20,7 @@ public class IdleManager : MonoBehaviour
     internal double anxietyMultiplier;
     internal double anxietyMultiplierCost;
     internal double anxietyUpgradeAmount;
-    internal float anxietyMultiplierAmount;
+    internal double anxietyMultiplierAmount;
     #endregion
 
     #region Depression Resource
@@ -33,27 +33,27 @@ public class IdleManager : MonoBehaviour
     internal double depressionMultiplier;
     internal double depressionMultiplierCost;
     internal double depressionUpgradeAmount;
-    internal float depressionMultiplierAmount;
+    internal double depressionMultiplierAmount;
 
     #endregion
 
     private float checkTimer = 0.1f;
-    private bool anxietyResourceEnabled;
-    private bool depressionResourceEnabled;
+    internal bool anxietyResourceEnabled;
+    internal bool depressionResourceEnabled;
 
     private void Start()
     {
-        anxietyUpgradeCost = 100;
-        anxietyUpgradeAmount = 0.1;
-        anxietyMultiplierAmount = 1;
-        anxietyMultiplierCost = 1500;
-        anxietyResourceEnabled = false;
+        //anxietyUpgradeCost = 100;
+        //anxietyUpgradeAmount = 0.1;
+        //anxietyMultiplierAmount = 1;
+        //anxietyMultiplierCost = 1500;
+        //anxietyResourceEnabled = false;
 
-        depressionUpgradeCost = 10000;
-        depressionUpgradeAmount = 1;
-        depressionMultiplierAmount = 1;
-        depressionMultiplierCost = 100000;
-        depressionResourceEnabled = false;
+        //depressionUpgradeCost = 10000;
+        //depressionUpgradeAmount = 1;
+        //depressionMultiplierAmount = 1;
+        //depressionMultiplierCost = 100000;
+        //depressionResourceEnabled = false;
 
         if (anxietyCountText != null)
         {

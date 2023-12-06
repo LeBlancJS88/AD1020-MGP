@@ -22,16 +22,16 @@ public class StressManager : MonoBehaviour
     // Stress Multiplier Button
     [SerializeField] internal TMP_Text stressMultiplierText;
     [SerializeField] internal double stressMultiplierCost;
-    internal float stressMultiplierAmount;
+    internal double stressMultiplierAmount;
 
 
     public void Start()
     {
-        stressCount = 0;
-        stressUpgradeCost = 10;
-        stressUpgradeAmount = 0.1;
-        stressMultiplierAmount = 1;
-        stressMultiplierCost = 100;
+        //stressCount = 0;
+        //stressUpgradeCost = 10;
+        //stressUpgradeAmount = 0.1;
+        //stressMultiplierAmount = 1;
+        //stressMultiplierCost = 100;
     }
 
     public void Update()

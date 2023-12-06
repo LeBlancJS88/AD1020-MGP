@@ -13,22 +13,22 @@ public class UIManager : MonoBehaviour
     [SerializeField] internal GameObject depressionTabButton;
     [SerializeField] internal GameObject burnoutTabButton;
 
-    [SerializeField] private GameObject stressTab;
-    [SerializeField] private GameObject anxietyTab;
-    [SerializeField] private GameObject depressionTab;
-    [SerializeField] private GameObject burnoutTab;
+    [SerializeField] internal GameObject stressTab;
+    [SerializeField] internal GameObject anxietyTab;
+    [SerializeField] internal GameObject depressionTab;
+    [SerializeField] internal GameObject burnoutTab;
 
-    [SerializeField] private GameObject stressUpgradeButton;
-    [SerializeField] private GameObject stressUpgradeTab;
-    [SerializeField] private GameObject stressGeneratorsButton;
-    [SerializeField] private GameObject stressGeneratorsTab;
+    [SerializeField] internal GameObject stressUpgradeButton;
+    [SerializeField] internal GameObject stressUpgradeTab;
+    [SerializeField] internal GameObject stressGeneratorsButton;
+    [SerializeField] internal GameObject stressGeneratorsTab;
 
 
-    [SerializeField] private GameObject optionsButton;
-    [SerializeField] private GameObject optionsMenuCloseButton;
-    [SerializeField] private GameObject optionsPanel;
+    [SerializeField] internal GameObject optionsButton;
+    [SerializeField] internal GameObject optionsMenuCloseButton;
+    [SerializeField] internal GameObject optionsPanel;
 
-    [SerializeField] private GameObject ClickAreaPanel;
+    [SerializeField] internal GameObject ClickAreaPanel;
 
     internal float tickTimer = 0f;
 
@@ -36,12 +36,12 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        stressTab.SetActive(true);
-        anxietyTab.SetActive(false);
-        depressionTab.SetActive(false);
-        burnoutTab.SetActive(false);
-        stressGeneratorsButton.SetActive(false);
-        stressGeneratorsTab.SetActive(false);
+        //stressTab.SetActive(true);
+        //anxietyTab.SetActive(false);
+        //depressionTab.SetActive(false);
+        //burnoutTab.SetActive(false);
+        //stressGeneratorsButton.SetActive(false);
+        //stressGeneratorsTab.SetActive(false);
     }
 
     private void Update()
