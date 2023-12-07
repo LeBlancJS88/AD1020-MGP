@@ -171,7 +171,7 @@ public class GameManager : MonoBehaviour
             double generatedStress = CalculateIdleResource(generatorManager.stressGeneratorLevelOneAmount, timeElapsed);
             if (generatedStress > 0)
             {
-                resourcesText += $"Stress: {generatedStress:F2}\n";
+                resourcesText += $"Stress: {generatedStress:F2}\n\n";
                 stressManager.stressCount += generatedStress;
             }
 
@@ -181,7 +181,7 @@ public class GameManager : MonoBehaviour
                 double generatedAnxiety = CalculateIdleResource(idleManager.anxietyUpgradeAmount * idleManager.anxietyMultiplierAmount, timeElapsed);
                 if (generatedAnxiety > 0)
                 {
-                    resourcesText += $"Anxiety: {generatedAnxiety:F2}\n";
+                    resourcesText += $"Anxiety: {generatedAnxiety:F2}\n\n";
                     idleManager.anxietyCount += generatedAnxiety;
                 }
             }
@@ -192,7 +192,7 @@ public class GameManager : MonoBehaviour
                 double generatedDepression = CalculateIdleResource(idleManager.depressionUpgradeAmount * idleManager.depressionMultiplierAmount, timeElapsed);
                 if (generatedDepression > 0)
                 {
-                    resourcesText += $"Depression: {generatedDepression:F2}\n";
+                    resourcesText += $"Depression: {generatedDepression:F2}\n\n";
                     idleManager.depressionCount += generatedDepression;
                 }
             }
