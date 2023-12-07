@@ -64,22 +64,7 @@ public class IdleManager : MonoBehaviour
         }
     }
     private void Start()
-    {
-
-        //anxietyUpgradeCost = 100;
-        //anxietyUpgradeAmount = 0.1;
-        //anxietyMultiplierAmount = 1;
-        //anxietyMultiplierCost = 1500;
-        //anxietyResourceEnabled = false;
-
-        //depressionUpgradeCost = 10000;
-        //depressionUpgradeAmount = 1;
-        //depressionMultiplierAmount = 1;
-        //depressionMultiplierCost = 100000;
-        //depressionResourceEnabled = false;
-
-        
-
+    {   
         StartCoroutine(IdleResource());
     }
 
@@ -150,7 +135,7 @@ public class IdleManager : MonoBehaviour
     #region Anxiety Upgrades
     public void AnxietyUpgradeClick()
     {
-        if (stressManager.stressCount >= anxietyUpgradeCost)
+        if (stressManager.stressCount >= anxietyUpgradeCost && (stressManager.stressCount - anxietyUpgradeCost) >= 0)
         {
             stressManager.stressCount -= anxietyUpgradeCost;
             anxietyUpgradeAmount *= 1.25;
@@ -162,7 +147,7 @@ public class IdleManager : MonoBehaviour
 
     public void AnxietyMultiplierClick()
     {
-        if (anxietyCount >= anxietyMultiplierCost)
+        if (anxietyCount >= anxietyMultiplierCost && (anxietyCount - anxietyMultiplierCost) >= 0)
         {
             anxietyCount -= anxietyMultiplierCost;
             anxietyMultiplierAmount += 1;
@@ -176,7 +161,7 @@ public class IdleManager : MonoBehaviour
 
     public void DepressionUpgradeClick()
     {
-        if (anxietyCount >= depressionUpgradeCost)
+        if (anxietyCount >= depressionUpgradeCost && (anxietyCount - depressionUpgradeCost) >= 0)
         {
             anxietyCount -= depressionUpgradeCost;
             depressionUpgradeAmount *= 1.25;
@@ -187,7 +172,7 @@ public class IdleManager : MonoBehaviour
 
     public void DepressionMultiplierClick()
     {
-        if (depressionCount >= depressionMultiplierCost)
+        if (depressionCount >= depressionMultiplierCost && (depressionCount - depressionMultiplierCost) >= 0)
         {
             depressionCount -= depressionMultiplierCost;
             depressionMultiplierAmount += 1;

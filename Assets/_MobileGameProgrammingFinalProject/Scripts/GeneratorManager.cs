@@ -41,7 +41,7 @@ public class GeneratorManager : MonoBehaviour
     public void StressGeneratorLevelOneClick()
     {
 
-        if (uiManager.stressGeneratorUnlocked && stressManager.stressCount >= 1000)
+        if (uiManager.stressGeneratorUnlocked && stressManager.stressCount >= 1000 && (stressManager.stressCount - stressGeneratorLevelOneCost) >= 0)
         {
             stressManager.stressCount -= stressGeneratorLevelOneCost;
             stressGeneratorLevelOneAmount += 1;
@@ -53,7 +53,7 @@ public class GeneratorManager : MonoBehaviour
     public void StressGeneratorLevelTwoClick()
     {
 
-        if (uiManager.stressGeneratorUnlocked && stressManager.stressCount >= 10000)
+        if (uiManager.stressGeneratorUnlocked && stressManager.stressCount >= 10000 && (stressManager.stressCount - stressGeneratorLevelTwoCost) >= 0)
         {
             stressManager.stressCount -= stressGeneratorLevelTwoCost;
             stressGeneratorLevelTwoAmount += 1;
