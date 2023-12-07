@@ -48,7 +48,7 @@ public class StressManager : MonoBehaviour
 
     public void StressUpgradeClick()
     {
-        if (stressCount >= stressUpgradeCost)
+        if (stressCount >= stressUpgradeCost && (stressCount - stressUpgradeCost) >= 0)
         {
         stressCount -= stressUpgradeCost;
         stressUpgradeAmount += 0.1;
@@ -58,7 +58,7 @@ public class StressManager : MonoBehaviour
 
     public void StressMultiplierClick()
     {
-        if (stressCount >= stressMultiplierCost)
+        if (stressCount >= stressMultiplierCost && (stressCount - stressMultiplierCost) >= 0)
         {
             stressCount -= stressMultiplierCost;
             stressMultiplierAmount += 1;
