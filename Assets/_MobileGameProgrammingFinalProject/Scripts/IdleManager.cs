@@ -12,9 +12,9 @@ public class IdleManager : MonoBehaviour
     private GameManager gameManager;
 
     #region Anxiety Resource
-    [SerializeField] private TMP_Text anxietyCountText;
-    [SerializeField] private TMP_Text anxietyUpgradeText;
-    [SerializeField] private TMP_Text anxietyMultiplierText;
+    [SerializeField] internal TMP_Text anxietyCountText;
+    [SerializeField] internal TMP_Text anxietyUpgradeText;
+    [SerializeField] internal TMP_Text anxietyMultiplierText;
     internal double anxietyCount;
 
     internal double anxietyUpgradeCost;
@@ -25,9 +25,9 @@ public class IdleManager : MonoBehaviour
     #endregion
 
     #region Depression Resource
-    [SerializeField] private TMP_Text depressionCountText;
-    [SerializeField] private TMP_Text depressionUpgradeText;
-    [SerializeField] private TMP_Text depressionMultiplierText;
+    [SerializeField] internal TMP_Text depressionCountText;
+    [SerializeField] internal TMP_Text depressionUpgradeText;
+    [SerializeField] internal TMP_Text depressionMultiplierText;
     internal double depressionCount;
 
     internal double depressionUpgradeCost;
@@ -46,21 +46,6 @@ public class IdleManager : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
         Debug.Log(gameManager == null ? "GameManager not found" : "GameManager found");
-    }
-    private void Start()
-    {
-
-        //anxietyUpgradeCost = 100;
-        //anxietyUpgradeAmount = 0.1;
-        //anxietyMultiplierAmount = 1;
-        //anxietyMultiplierCost = 1500;
-        //anxietyResourceEnabled = false;
-
-        //depressionUpgradeCost = 10000;
-        //depressionUpgradeAmount = 1;
-        //depressionMultiplierAmount = 1;
-        //depressionMultiplierCost = 100000;
-        //depressionResourceEnabled = false;
 
         if (anxietyCountText != null)
         {
@@ -77,6 +62,23 @@ public class IdleManager : MonoBehaviour
             Debug.LogError("Dependencies are not set");
             return;
         }
+    }
+    private void Start()
+    {
+
+        //anxietyUpgradeCost = 100;
+        //anxietyUpgradeAmount = 0.1;
+        //anxietyMultiplierAmount = 1;
+        //anxietyMultiplierCost = 1500;
+        //anxietyResourceEnabled = false;
+
+        //depressionUpgradeCost = 10000;
+        //depressionUpgradeAmount = 1;
+        //depressionMultiplierAmount = 1;
+        //depressionMultiplierCost = 100000;
+        //depressionResourceEnabled = false;
+
+        
 
         StartCoroutine(IdleResource());
     }
@@ -108,7 +110,7 @@ public class IdleManager : MonoBehaviour
         }
     }
 
-    private void AnxietyUnlock()
+    internal void AnxietyUnlock()
     {
         if (stressManager.stressCount >= 10)
         {
@@ -118,7 +120,7 @@ public class IdleManager : MonoBehaviour
         }
     }
 
-    private void DepressionUnlock()
+    internal void DepressionUnlock()
     {
         if (anxietyCount >= 10)
         {

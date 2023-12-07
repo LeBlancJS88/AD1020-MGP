@@ -44,15 +44,19 @@ public class GameManager : MonoBehaviour
         stressManager.stressUpgradeAmount = double.Parse(PlayerPrefs.GetString("stressUpgradeAmount", "0.1"));
         stressManager.stressMultiplierAmount = double.Parse(PlayerPrefs.GetString("stressMultiplierAmount", "1"));
         stressManager.stressMultiplierCost = double.Parse(PlayerPrefs.GetString("stressMultiplierCost", "100"));
+        idleManager.AnxietyUnlock();
 
         // Idle Manager Variables
         // Anxiety Resource
+        idleManager.anxietyCount = double.Parse(PlayerPrefs.GetString("anxietyCount", "0"));
         idleManager.anxietyUpgradeCost = double.Parse(PlayerPrefs.GetString("anxietyUpgradeCost", "100"));
         idleManager.anxietyUpgradeAmount = double.Parse(PlayerPrefs.GetString("anxietyUpgradeAmount", "0.1")); ;
         idleManager.anxietyMultiplierAmount = double.Parse(PlayerPrefs.GetString("anxietyMultiplierAmount", "1"));
         idleManager.anxietyMultiplierCost = double.Parse(PlayerPrefs.GetString("anxietyMultiplierCost", "1500"));
         idleManager.anxietyResourceEnabled = PlayerPrefs.GetInt("anxietyResourceEnabled", 0) == 1;
+        idleManager.DepressionUnlock();
         // Depression Resource
+        idleManager.depressionCount = double.Parse(PlayerPrefs.GetString("depressionCount", "0"));
         idleManager.depressionUpgradeCost = double.Parse(PlayerPrefs.GetString("depressionUpgradeCost", "10000"));
         idleManager.depressionUpgradeAmount = double.Parse(PlayerPrefs.GetString("depressionUpgradeAmount", "1"));
         idleManager.depressionMultiplierAmount = double.Parse(PlayerPrefs.GetString("depressionMultiplierAmount", "1"));
@@ -74,6 +78,7 @@ public class GameManager : MonoBehaviour
         uiManager.burnoutTab.SetActive(PlayerPrefs.GetInt("burnoutTab", 0) == 1);
         uiManager.stressGeneratorsButton.SetActive(PlayerPrefs.GetInt("stressGeneratorsButton", 0) == 1);
         uiManager.stressGeneratorsTab.SetActive(PlayerPrefs.GetInt("stressGeneratorsTab", 0) == 1);
+        uiManager.stressGeneratorUnlocked = PlayerPrefs.GetInt("stressGeneratorUnlocked", 0) == 1;
     }
 
     public void Save()
@@ -87,18 +92,22 @@ public class GameManager : MonoBehaviour
 
         // Idle Manager Variables
         // Anxiety Resource
+        PlayerPrefs.SetString("anxietyCount", idleManager.anxietyCount.ToString());
         PlayerPrefs.SetString("anxietyUpgradeCost", idleManager.anxietyUpgradeCost.ToString());
         PlayerPrefs.SetString("anxietyUpgradeAmount", idleManager.anxietyUpgradeAmount.ToString());
         PlayerPrefs.SetString("anxietyMultiplierAmount", idleManager.anxietyMultiplierAmount.ToString());
         PlayerPrefs.SetString("anxietyMultiplierCost", idleManager.anxietyMultiplierCost.ToString());
         PlayerPrefs.SetInt("anxietyResourceEnabled", idleManager.anxietyResourceEnabled ? 1 : 0);
+        PlayerPrefs.SetInt("anxietyCountText", idleManager.anxietyCountText ? 1 : 0);
 
         // Depression Resource
+        PlayerPrefs.SetString("depressionCount", idleManager.depressionCount.ToString());
         PlayerPrefs.SetString("depressionUpgradeCost", idleManager.depressionUpgradeCost.ToString());
         PlayerPrefs.SetString("depressionUpgradeAmount", idleManager.depressionUpgradeAmount.ToString());
         PlayerPrefs.SetString("depressionMultiplierAmount", idleManager.depressionMultiplierAmount.ToString());
         PlayerPrefs.SetString("depressionMultiplierCost", idleManager.depressionMultiplierCost.ToString());
         PlayerPrefs.SetInt("depressionResourceEnabled", idleManager.depressionResourceEnabled ? 1 : 0);
+        PlayerPrefs.SetInt("depressionCountText", idleManager.depressionCountText ? 1 : 0);
 
         // Generator Manager Variables
         // Level One Stress Generator Variables
@@ -115,6 +124,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("burnoutTab", uiManager.burnoutTab.activeSelf ? 1 : 0);
         PlayerPrefs.SetInt("stressGeneratorsButton", uiManager.stressGeneratorsButton.activeSelf ? 1 : 0);
         PlayerPrefs.SetInt("stressGeneratorsTab", uiManager.stressGeneratorsTab.activeSelf ? 1 : 0);
+        PlayerPrefs.SetInt("stressGeneratorUnlocked", uiManager.stressGeneratorUnlocked ? 1 : 0);
         // Save the game every 5 seconds
     }
 }
