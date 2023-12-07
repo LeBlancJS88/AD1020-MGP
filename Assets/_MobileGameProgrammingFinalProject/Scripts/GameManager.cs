@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -9,7 +11,11 @@ public class GameManager : MonoBehaviour
     private GeneratorManager generatorManager;
     private UIManager uiManager;
 
+    [SerializeField] private TMP_Text generatedResourcesText; 
+    [SerializeField] private GameObject generatedResourcesPanel; 
+
     internal float saveTimer = 0f;
+    private const string LastSaveTimeKey = "LastSaveTime";
 
     private void Awake()
     {
@@ -19,16 +25,32 @@ public class GameManager : MonoBehaviour
         uiManager = FindObjectOfType<UIManager>();
     }
 
+    private void OnApplicationQuit()
+    {
+        Save();
+        SaveCurrentTime();
+    }
+
+    private void OnApplicationPause(bool pause)
+    {
+        if (pause)
+        {
+            Save();
+            SaveCurrentTime();
+        }
+    }
+
     private void Start()
     {
         Load();
+        LoadAndCalculateResources();
         saveTimer = 0f;
     }
 
     private void Update()
     {
         saveTimer += Time.deltaTime;
-        if (saveTimer > 5f)
+        if (saveTimer > 0.1f)
         {
             saveTimer = 0f;
             Save();
@@ -125,6 +147,76 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("stressGeneratorsButton", uiManager.stressGeneratorsButton.activeSelf ? 1 : 0);
         PlayerPrefs.SetInt("stressGeneratorsTab", uiManager.stressGeneratorsTab.activeSelf ? 1 : 0);
         PlayerPrefs.SetInt("stressGeneratorUnlocked", uiManager.stressGeneratorUnlocked ? 1 : 0);
-        // Save the game every 5 seconds
+        // Save the game every 0.1 seconds
+    }
+
+    private void SaveCurrentTime()
+    {
+        var currentTime = DateTime.UtcNow;
+        PlayerPrefs.SetString(LastSaveTimeKey, currentTime.ToString());
+        PlayerPrefs.Save();
+    }
+
+    private void LoadAndCalculateResources()
+    {
+        string lastSaveTimeString = PlayerPrefs.GetString(LastSaveTimeKey, string.Empty);
+        string resourcesText = ""; // String to hold the text for generated resources
+
+        if (!string.IsNullOrEmpty(lastSaveTimeString))
+        {
+            DateTime lastSaveTime = DateTime.Parse(lastSaveTimeString);
+            TimeSpan timeElapsed = DateTime.UtcNow - lastSaveTime;
+
+            // Calculate Stress
+            double generatedStress = CalculateIdleResource(generatorManager.stressGeneratorLevelOneAmount, timeElapsed);
+            if (generatedStress > 0)
+            {
+                resourcesText += $"Stress: {generatedStress:F2}\n";
+                stressManager.stressCount += generatedStress;
+            }
+
+            // Calculate Anxiety
+            if (idleManager.anxietyResourceEnabled)
+            {
+                double generatedAnxiety = CalculateIdleResource(idleManager.anxietyUpgradeAmount * idleManager.anxietyMultiplierAmount, timeElapsed);
+                if (generatedAnxiety > 0)
+                {
+                    resourcesText += $"Anxiety: {generatedAnxiety:F2}\n";
+                    idleManager.anxietyCount += generatedAnxiety;
+                }
+            }
+
+            // Calculate Depression
+            if (idleManager.depressionResourceEnabled)
+            {
+                double generatedDepression = CalculateIdleResource(idleManager.depressionUpgradeAmount * idleManager.depressionMultiplierAmount, timeElapsed);
+                if (generatedDepression > 0)
+                {
+                    resourcesText += $"Depression: {generatedDepression:F2}\n";
+                    idleManager.depressionCount += generatedDepression;
+                }
+            }
+
+            // Update and show the text if there are generated resources
+            if (!string.IsNullOrEmpty(resourcesText))
+            {
+                generatedResourcesText.text = resourcesText;
+                generatedResourcesPanel.SetActive(true);
+            }
+            else
+            {
+                generatedResourcesPanel.SetActive(false);
+            }
+        }
+    }
+
+    public void OKButtonClick()
+    {
+        generatedResourcesPanel.SetActive(false);
+    }
+
+    private double CalculateIdleResource(double generationRate, TimeSpan timeElapsed)
+    {
+        return generationRate * timeElapsed.TotalSeconds;
     }
 }
