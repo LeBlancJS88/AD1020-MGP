@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
     public void Load()
     {
         // Stress Manager Variables
@@ -68,7 +69,6 @@ public class GameManager : MonoBehaviour
         generatorManager.stressGeneratorLevelTwoCost = double.Parse(PlayerPrefs.GetString("stressGeneratorLevelTwoCost", "10000"));
 
         // UI Manager Variables
-        uiManager.stressTab.SetActive(PlayerPrefs.GetInt("stressTab", 0) == 1);
         uiManager.anxietyTab.SetActive(PlayerPrefs.GetInt("anxietyTab", 0) == 1);
         uiManager.depressionTab.SetActive(PlayerPrefs.GetInt("depressionTab", 0) == 1);
         uiManager.burnoutTab.SetActive(PlayerPrefs.GetInt("burnoutTab", 0) == 1);
@@ -110,7 +110,6 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetString("stressGeneratorLevelTwoCost", generatorManager.stressGeneratorLevelTwoCost.ToString());
 
         // UI Manager Variables
-        PlayerPrefs.SetInt("stressTab", uiManager.stressTab.activeSelf ? 1 : 0);
         PlayerPrefs.SetInt("anxietyTab", uiManager.anxietyTab.activeSelf ? 1 : 0);
         PlayerPrefs.SetInt("depressionTab", uiManager.depressionTab.activeSelf ? 1 : 0);
         PlayerPrefs.SetInt("burnoutTab", uiManager.burnoutTab.activeSelf ? 1 : 0);

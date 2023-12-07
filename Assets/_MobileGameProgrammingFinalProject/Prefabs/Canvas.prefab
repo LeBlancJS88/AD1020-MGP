@@ -4629,6 +4629,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stressManager: {fileID: 0}
+  stressTextPrefab: {fileID: 966718878102155958, guid: 914d5dc6fc28c444c9609c3f0ce5db52,
+    type: 3}
 --- !u!1 &4240869466967355597
 GameObject:
   m_ObjectHideFlags: 0

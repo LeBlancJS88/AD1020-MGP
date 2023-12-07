@@ -9,6 +9,7 @@ public class IdleManager : MonoBehaviour
 
     [SerializeField] private StressManager stressManager;
     [SerializeField] private UIManager uiManager;
+    private GameManager gameManager;
 
     #region Anxiety Resource
     [SerializeField] private TMP_Text anxietyCountText;
@@ -41,8 +42,14 @@ public class IdleManager : MonoBehaviour
     internal bool anxietyResourceEnabled;
     internal bool depressionResourceEnabled;
 
+    private void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+        Debug.Log(gameManager == null ? "GameManager not found" : "GameManager found");
+    }
     private void Start()
     {
+
         //anxietyUpgradeCost = 100;
         //anxietyUpgradeAmount = 0.1;
         //anxietyMultiplierAmount = 1;
@@ -79,8 +86,14 @@ public class IdleManager : MonoBehaviour
         checkTimer -= Time.deltaTime;
         if (checkTimer <= 0)
         {
+            if (!anxietyResourceEnabled)
+            {
             AnxietyUnlock();
+            }
+            if (!depressionResourceEnabled)
+            {
             DepressionUnlock();
+            }
             checkTimer = 0.1f;
         }
 

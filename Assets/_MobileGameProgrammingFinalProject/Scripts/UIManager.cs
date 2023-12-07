@@ -36,7 +36,9 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        //stressTab.SetActive(true);
+        stressTabButton.SetActive(true);
+        stressTab.SetActive(true);
+        stressUpgradeTab.SetActive(true);
         //anxietyTab.SetActive(false);
         //depressionTab.SetActive(false);
         //burnoutTab.SetActive(false);
