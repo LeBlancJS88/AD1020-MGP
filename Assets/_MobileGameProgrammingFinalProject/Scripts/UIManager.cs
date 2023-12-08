@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
 
     public StressManager stressManager;
+    public IdleManager idleManager;
 
     [SerializeField] internal GameObject stressTabButton;
     [SerializeField] internal GameObject anxietyTabButton;
@@ -39,11 +40,6 @@ public class UIManager : MonoBehaviour
         stressTabButton.SetActive(true);
         stressTab.SetActive(true);
         stressUpgradeTab.SetActive(true);
-        //anxietyTab.SetActive(false);
-        //depressionTab.SetActive(false);
-        //burnoutTab.SetActive(false);
-        //stressGeneratorsButton.SetActive(false);
-        //stressGeneratorsTab.SetActive(false);
     }
 
     private void Update()
@@ -53,9 +49,18 @@ public class UIManager : MonoBehaviour
         if (tickTimer >= 1f)
         {
             tickTimer = 0f;
-            CheckForAnxietyTabUnlock();
-
-            CheckForStressGeneratorsUnlock();
+            if (stressManager.stressCount >= 1000)
+            {
+                CheckForStressGeneratorsUnlock();
+            }
+            if (stressManager.stressCount >= 10000 && !idleManager.anxietyResourceEnabled)
+            {
+                CheckForAnxietyTabUnlock();
+            }
+            if (idleManager.anxietyCount >= 100000 && !idleManager.depressionResourceEnabled)
+            {
+                CheckForDepressionTabUnlock();
+            }
         }
     }
 
@@ -70,9 +75,17 @@ public class UIManager : MonoBehaviour
 
     private void CheckForAnxietyTabUnlock()
     {
-        if (stressManager.stressCount >= 1000)
+        if (stressManager.stressCount >= 10000)
         {
             anxietyTabButton.SetActive(true);
+        }
+    }
+
+    private void CheckForDepressionTabUnlock()
+    {
+        if (stressManager.stressCount >= 100000)
+        {
+            depressionTabButton.SetActive(true);
         }
     }
 
