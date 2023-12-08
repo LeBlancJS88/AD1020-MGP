@@ -12461,7 +12461,7 @@ MonoBehaviour:
   optionsMenuCloseButton: {fileID: 9089522847151853804}
   optionsPanel: {fileID: 1939097719289738400}
   ClickAreaPanel: {fileID: 4228395770732665795}
-  deleteDataConfirmationPanel: {fileID: 0}
+  deleteDataConfirmationPanel: {fileID: 6071967374009746824}
 --- !u!1 &7697283825884876140
 GameObject:
   m_ObjectHideFlags: 0
