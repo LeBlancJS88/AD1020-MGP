@@ -86,6 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stressManager: {fileID: 4011796768586358735}
   uiManager: {fileID: 0}
+  gameManager: {fileID: 7939126303558024999}
   anxietyCountText: {fileID: 0}
   anxietyUpgradeText: {fileID: 0}
   anxietyMultiplierText: {fileID: 0}
