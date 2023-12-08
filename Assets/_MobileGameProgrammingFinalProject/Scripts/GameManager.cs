@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 
@@ -61,38 +62,38 @@ public class GameManager : MonoBehaviour
     public void Load()
     {
         // Stress Manager Variables
-        stressManager.stressCount = double.Parse(PlayerPrefs.GetString("stressCount", "0"));
-        stressManager.stressUpgradeCost = double.Parse(PlayerPrefs.GetString("stressUpgradeCost", "10"));
-        stressManager.stressUpgradeAmount = double.Parse(PlayerPrefs.GetString("stressUpgradeAmount", "0.1"));
-        stressManager.stressMultiplierAmount = double.Parse(PlayerPrefs.GetString("stressMultiplierAmount", "1"));
-        stressManager.stressMultiplierCost = double.Parse(PlayerPrefs.GetString("stressMultiplierCost", "100"));
+        stressManager.stressCount = double.Parse(PlayerPrefs.GetString("stressCount", "0"), System.Globalization.CultureInfo.InvariantCulture);
+        stressManager.stressUpgradeCost = double.Parse(PlayerPrefs.GetString("stressUpgradeCost", "10"), System.Globalization.CultureInfo.InvariantCulture);
+        stressManager.stressUpgradeAmount = double.Parse(PlayerPrefs.GetString("stressUpgradeAmount", "0.1"), System.Globalization.CultureInfo.InvariantCulture);
+        stressManager.stressMultiplierAmount = double.Parse(PlayerPrefs.GetString("stressMultiplierAmount", "1"), System.Globalization.CultureInfo.InvariantCulture);
+        stressManager.stressMultiplierCost = double.Parse(PlayerPrefs.GetString("stressMultiplierCost", "100"), System.Globalization.CultureInfo.InvariantCulture);
         idleManager.AnxietyUnlock();
 
         // Idle Manager Variables
         // Anxiety Resource
-        idleManager.anxietyCount = double.Parse(PlayerPrefs.GetString("anxietyCount", "0"));
-        idleManager.anxietyUpgradeCost = double.Parse(PlayerPrefs.GetString("anxietyUpgradeCost", "1500"));
-        idleManager.anxietyUpgradeAmount = double.Parse(PlayerPrefs.GetString("anxietyUpgradeAmount", "0.5")); ;
-        idleManager.anxietyMultiplierAmount = double.Parse(PlayerPrefs.GetString("anxietyMultiplierAmount", "1"));
-        idleManager.anxietyMultiplierCost = double.Parse(PlayerPrefs.GetString("anxietyMultiplierCost", "1500"));
+        idleManager.anxietyCount = double.Parse(PlayerPrefs.GetString("anxietyCount", "0"), System.Globalization.CultureInfo.InvariantCulture);
+        idleManager.anxietyUpgradeCost = double.Parse(PlayerPrefs.GetString("anxietyUpgradeCost", "1500"), System.Globalization.CultureInfo.InvariantCulture);
+        idleManager.anxietyUpgradeAmount = double.Parse(PlayerPrefs.GetString("anxietyUpgradeAmount", "0.5"), System.Globalization.CultureInfo.InvariantCulture);
+        idleManager.anxietyMultiplierAmount = double.Parse(PlayerPrefs.GetString("anxietyMultiplierAmount", "1"), System.Globalization.CultureInfo.InvariantCulture);
+        idleManager.anxietyMultiplierCost = double.Parse(PlayerPrefs.GetString("anxietyMultiplierCost", "1500"), System.Globalization.CultureInfo.InvariantCulture);
         idleManager.anxietyResourceEnabled = PlayerPrefs.GetInt("anxietyResourceEnabled", 0) == 1;
         idleManager.DepressionUnlock();
         // Depression Resource
-        idleManager.depressionCount = double.Parse(PlayerPrefs.GetString("depressionCount", "0"));
-        idleManager.depressionUpgradeCost = double.Parse(PlayerPrefs.GetString("depressionUpgradeCost", "10000"));
-        idleManager.depressionUpgradeAmount = double.Parse(PlayerPrefs.GetString("depressionUpgradeAmount", "1"));
-        idleManager.depressionMultiplierAmount = double.Parse(PlayerPrefs.GetString("depressionMultiplierAmount", "1"));
-        idleManager.depressionMultiplierCost = double.Parse(PlayerPrefs.GetString("depressionMultiplierCost", "100000"));
+        idleManager.depressionCount = double.Parse(PlayerPrefs.GetString("depressionCount", "0"), System.Globalization.CultureInfo.InvariantCulture);
+        idleManager.depressionUpgradeCost = double.Parse(PlayerPrefs.GetString("depressionUpgradeCost", "10000"), System.Globalization.CultureInfo.InvariantCulture);
+        idleManager.depressionUpgradeAmount = double.Parse(PlayerPrefs.GetString("depressionUpgradeAmount", "1"), System.Globalization.CultureInfo.InvariantCulture);
+        idleManager.depressionMultiplierAmount = double.Parse(PlayerPrefs.GetString("depressionMultiplierAmount", "1"), System.Globalization.CultureInfo.InvariantCulture);
+        idleManager.depressionMultiplierCost = double.Parse(PlayerPrefs.GetString("depressionMultiplierCost", "100000"), System.Globalization.CultureInfo.InvariantCulture);
         idleManager.depressionResourceEnabled = PlayerPrefs.GetInt("depressionResourceEnabled", 0) == 1;
 
         // Generator Manager Variables
         // Level One Stress Generator Variables
-        generatorManager.stressGeneratorLevelOneAmount = double.Parse(PlayerPrefs.GetString("stressGeneratorLevelOneAmount", "0"));
-        generatorManager.stressGeneratorLevelOneCost = double.Parse(PlayerPrefs.GetString("stressGeneratorLevelOneCost", "1000"));
+        generatorManager.stressGeneratorLevelOneAmount = double.Parse(PlayerPrefs.GetString("stressGeneratorLevelOneAmount", "0"), System.Globalization.CultureInfo.InvariantCulture);
+        generatorManager.stressGeneratorLevelOneCost = double.Parse(PlayerPrefs.GetString("stressGeneratorLevelOneCost", "1000"), System.Globalization.CultureInfo.InvariantCulture);
 
         // Level Two Stress Generator Variables
-        generatorManager.stressGeneratorLevelTwoAmount = double.Parse(PlayerPrefs.GetString("stressGeneratorLevelTwoAmount", "0"));
-        generatorManager.stressGeneratorLevelTwoCost = double.Parse(PlayerPrefs.GetString("stressGeneratorLevelTwoCost", "10000"));
+        generatorManager.stressGeneratorLevelTwoAmount = double.Parse(PlayerPrefs.GetString("stressGeneratorLevelTwoAmount", "0"), System.Globalization.CultureInfo.InvariantCulture);
+        generatorManager.stressGeneratorLevelTwoCost = double.Parse(PlayerPrefs.GetString("stressGeneratorLevelTwoCost", "10000"), System.Globalization.CultureInfo.InvariantCulture);
 
         // UI Manager Variables
         uiManager.anxietyTab.SetActive(PlayerPrefs.GetInt("anxietyTab", 0) == 1);
@@ -106,39 +107,39 @@ public class GameManager : MonoBehaviour
     public void Save()
     {
         // Stress Manager Variables
-        PlayerPrefs.SetString("stressCount", stressManager.stressCount.ToString());
-        PlayerPrefs.SetString("stressUpgradeCost", stressManager.stressUpgradeCost.ToString());
-        PlayerPrefs.SetString("stressUpgradeAmount", stressManager.stressUpgradeAmount.ToString());
-        PlayerPrefs.SetString("stressMultiplierAmount", stressManager.stressMultiplierAmount.ToString());
-        PlayerPrefs.SetString("stressMultiplierCost", stressManager.stressMultiplierCost.ToString());
+        PlayerPrefs.SetString("stressCount", stressManager.stressCount.ToString(CultureInfo.InvariantCulture));
+        PlayerPrefs.SetString("stressUpgradeCost", stressManager.stressUpgradeCost.ToString(CultureInfo.InvariantCulture));
+        PlayerPrefs.SetString("stressUpgradeAmount", stressManager.stressUpgradeAmount.ToString(CultureInfo.InvariantCulture));
+        PlayerPrefs.SetString("stressMultiplierAmount", stressManager.stressMultiplierAmount.ToString(CultureInfo.InvariantCulture));
+        PlayerPrefs.SetString("stressMultiplierCost", stressManager.stressMultiplierCost.ToString(CultureInfo.InvariantCulture));
 
         // Idle Manager Variables
         // Anxiety Resource
-        PlayerPrefs.SetString("anxietyCount", idleManager.anxietyCount.ToString());
-        PlayerPrefs.SetString("anxietyUpgradeCost", idleManager.anxietyUpgradeCost.ToString());
-        PlayerPrefs.SetString("anxietyUpgradeAmount", idleManager.anxietyUpgradeAmount.ToString());
-        PlayerPrefs.SetString("anxietyMultiplierAmount", idleManager.anxietyMultiplierAmount.ToString());
-        PlayerPrefs.SetString("anxietyMultiplierCost", idleManager.anxietyMultiplierCost.ToString());
+        PlayerPrefs.SetString("anxietyCount", idleManager.anxietyCount.ToString(CultureInfo.InvariantCulture));
+        PlayerPrefs.SetString("anxietyUpgradeCost", idleManager.anxietyUpgradeCost.ToString(CultureInfo.InvariantCulture));
+        PlayerPrefs.SetString("anxietyUpgradeAmount", idleManager.anxietyUpgradeAmount.ToString(CultureInfo.InvariantCulture));
+        PlayerPrefs.SetString("anxietyMultiplierAmount", idleManager.anxietyMultiplierAmount.ToString(CultureInfo.InvariantCulture));
+        PlayerPrefs.SetString("anxietyMultiplierCost", idleManager.anxietyMultiplierCost.ToString(CultureInfo.InvariantCulture));
         PlayerPrefs.SetInt("anxietyResourceEnabled", idleManager.anxietyResourceEnabled ? 1 : 0);
         PlayerPrefs.SetInt("anxietyCountText", idleManager.anxietyCountText ? 1 : 0);
 
         // Depression Resource
-        PlayerPrefs.SetString("depressionCount", idleManager.depressionCount.ToString());
-        PlayerPrefs.SetString("depressionUpgradeCost", idleManager.depressionUpgradeCost.ToString());
-        PlayerPrefs.SetString("depressionUpgradeAmount", idleManager.depressionUpgradeAmount.ToString());
-        PlayerPrefs.SetString("depressionMultiplierAmount", idleManager.depressionMultiplierAmount.ToString());
-        PlayerPrefs.SetString("depressionMultiplierCost", idleManager.depressionMultiplierCost.ToString());
+        PlayerPrefs.SetString("depressionCount", idleManager.depressionCount.ToString(CultureInfo.InvariantCulture));
+        PlayerPrefs.SetString("depressionUpgradeCost", idleManager.depressionUpgradeCost.ToString(CultureInfo.InvariantCulture));
+        PlayerPrefs.SetString("depressionUpgradeAmount", idleManager.depressionUpgradeAmount.ToString(CultureInfo.InvariantCulture));
+        PlayerPrefs.SetString("depressionMultiplierAmount", idleManager.depressionMultiplierAmount.ToString(CultureInfo.InvariantCulture));
+        PlayerPrefs.SetString("depressionMultiplierCost", idleManager.depressionMultiplierCost.ToString(CultureInfo.InvariantCulture));
         PlayerPrefs.SetInt("depressionResourceEnabled", idleManager.depressionResourceEnabled ? 1 : 0);
         PlayerPrefs.SetInt("depressionCountText", idleManager.depressionCountText ? 1 : 0);
 
         // Generator Manager Variables
         // Level One Stress Generator Variables
-        PlayerPrefs.SetString("stressGeneratorLevelOneAmount", generatorManager.stressGeneratorLevelOneAmount.ToString());
-        PlayerPrefs.SetString("stressGeneratorLevelOneCost", generatorManager.stressGeneratorLevelOneCost.ToString());
+        PlayerPrefs.SetString("stressGeneratorLevelOneAmount", generatorManager.stressGeneratorLevelOneAmount.ToString(CultureInfo.InvariantCulture));
+        PlayerPrefs.SetString("stressGeneratorLevelOneCost", generatorManager.stressGeneratorLevelOneCost.ToString(CultureInfo.InvariantCulture));
 
         // Level Two Stress Generator Variables
-        PlayerPrefs.SetString("stressGeneratorLevelTwoAmount", generatorManager.stressGeneratorLevelTwoAmount.ToString());
-        PlayerPrefs.SetString("stressGeneratorLevelTwoCost", generatorManager.stressGeneratorLevelTwoCost.ToString());
+        PlayerPrefs.SetString("stressGeneratorLevelTwoAmount", generatorManager.stressGeneratorLevelTwoAmount.ToString(CultureInfo.InvariantCulture));
+        PlayerPrefs.SetString("stressGeneratorLevelTwoCost", generatorManager.stressGeneratorLevelTwoCost.ToString(CultureInfo.InvariantCulture));
 
         // UI Manager Variables
         PlayerPrefs.SetInt("anxietyTab", uiManager.anxietyTab.activeSelf ? 1 : 0);

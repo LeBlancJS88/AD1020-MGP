@@ -149,4 +149,11 @@ public class UIManager : MonoBehaviour
         optionsPanel.SetActive(false);
         ClickAreaPanel.SetActive(true);
     }
+
+    public void ClearPlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+        Debug.Log("All PlayerPrefs data deleted.");
+    }
 }
