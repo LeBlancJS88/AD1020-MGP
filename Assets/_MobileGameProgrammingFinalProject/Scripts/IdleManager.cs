@@ -9,7 +9,7 @@ public class IdleManager : MonoBehaviour
 
     [SerializeField] private StressManager stressManager;
     [SerializeField] private UIManager uiManager;
-    private GameManager gameManager;
+    [SerializeField] private GameManager gameManager;
 
     #region Anxiety Resource
     [SerializeField] internal TMP_Text anxietyCountText;

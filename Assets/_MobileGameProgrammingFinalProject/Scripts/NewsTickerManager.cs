@@ -233,21 +233,6 @@ public class NewsTickerManager : MonoBehaviour
     {
         if(enableScroll)
             ScrollText();
-
-        //if (waitingForNextMessage)
-        //{
-        //    timer += Time.deltaTime;
-        //    if (timer >= messageInterval)
-        //    {
-        //        timer = 0f; // Reset the timer
-        //        SetRandomMessage();
-        //        waitingForNextMessage = false;
-        //    }
-        //}
-        //else if (HasMessageScrolledOut())
-        //{
-        //    waitingForNextMessage = true;
-        //}
     }
 
     void ScrollText()

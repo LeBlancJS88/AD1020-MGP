@@ -6,12 +6,12 @@ using System.Collections;
 public class UITapHandler : MonoBehaviour, IPointerClickHandler
 {
     public StressManager stressManager;
-    [SerializeField] internal TMP_Text stressTextPrefab; // Reference to the TextMeshPro prefab
-    private Canvas canvas; // Reference to the canvas
+    [SerializeField] internal TMP_Text stressTextPrefab;
+    private Canvas canvas; 
 
     private void Start()
     {
-        canvas = GetComponentInParent<Canvas>(); // Get the canvas component
+        canvas = GetComponentInParent<Canvas>();
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -23,7 +23,7 @@ public class UITapHandler : MonoBehaviour, IPointerClickHandler
 
         // Instantiate a new text element at the tap position
         TMP_Text spawnedText = Instantiate(stressTextPrefab, canvas.transform, false);
-        spawnedText.text = "Stress \n + \n" + stressClickAmount;
+        spawnedText.text =  "+ " + stressClickAmount + "\n Stress";
 
         // Convert the tap position from screen space to canvas space
         Vector2 localPoint;

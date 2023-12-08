@@ -35,6 +35,11 @@ public class UIManager : MonoBehaviour
 
     internal bool stressGeneratorUnlocked = false;
 
+    private void Awake()
+    {
+        stressManager = FindObjectOfType<StressManager>();
+        idleManager = FindObjectOfType<IdleManager>();
+    }
     private void Start()
     {
         stressTabButton.SetActive(true);

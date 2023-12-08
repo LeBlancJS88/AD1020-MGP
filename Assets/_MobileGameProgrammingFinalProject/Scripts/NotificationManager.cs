@@ -11,6 +11,9 @@ public class NotificationManager : MonoBehaviour
 
     private void Awake()
     {
+        uiManager = FindObjectOfType<UIManager>();
+        idleManager = FindObjectOfType<IdleManager>();
+
         AndroidNotificationChannel channel = new()
         {
             Id = channelId,
