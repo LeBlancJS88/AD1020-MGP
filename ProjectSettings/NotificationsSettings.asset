@@ -43,11 +43,20 @@
         },
         "DrawableResources": [
             {
-                "Id": "cookie_large",
+                "Id": "logo_large",
                 "Type": 1,
                 "Asset": {
                     "fileID": 2800000,
-                    "guid": "eb24c38f144234b3ebbb8091d47d8f05",
+                    "guid": "7e220f5bba476354cbe8f154a2ced08d",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "resource_icon",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "1a33f906b4a1c3249afd57753df49a3b",
                     "type": 3
                 }
             }
