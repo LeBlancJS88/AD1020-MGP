@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text generatedResourcesText; 
     [SerializeField] private GameObject generatedResourcesPanel; 
 
-    internal float saveTimer = 0f;
     private const string LastSaveTimeKey = "LastSaveTime";
 
     private void Awake()
@@ -45,18 +44,6 @@ public class GameManager : MonoBehaviour
     {
         Load();
         LoadAndCalculateResources();
-        saveTimer = 0f;
-    }
-
-    private void Update()
-    {
-        saveTimer += Time.deltaTime;
-        if (saveTimer > 0.1f)
-        {
-            saveTimer = 0f;
-            Save();
-        }
-
     }
 
     public void Load()

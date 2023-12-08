@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-
+    public GameManager gameManager;
     public StressManager stressManager;
     public IdleManager idleManager;
 
@@ -31,12 +31,14 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] internal GameObject ClickAreaPanel;
 
+    [SerializeField] internal GameObject deleteDataConfirmationPanel;
     internal float tickTimer = 0f;
 
     internal bool stressGeneratorUnlocked = false;
 
     private void Awake()
     {
+        gameManager = FindObjectOfType<GameManager>();
         stressManager = FindObjectOfType<StressManager>();
         idleManager = FindObjectOfType<IdleManager>();
     }
@@ -150,10 +152,22 @@ public class UIManager : MonoBehaviour
         ClickAreaPanel.SetActive(true);
     }
 
+    public void DeleteDataClick()
+    {
+        deleteDataConfirmationPanel.SetActive(true);
+    }
+
     public void ClearPlayerPrefs()
     {
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteAll();        
         PlayerPrefs.Save();
+        gameManager.Load();
         Debug.Log("All PlayerPrefs data deleted.");
+        deleteDataConfirmationPanel.SetActive(false);
+    }
+
+    public void CancelDeleteDataClick()
+    {
+        deleteDataConfirmationPanel.SetActive(false);
     }
 }
