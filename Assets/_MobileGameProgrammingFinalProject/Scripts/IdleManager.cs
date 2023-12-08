@@ -97,7 +97,7 @@ public class IdleManager : MonoBehaviour
 
     internal void AnxietyUnlock()
     {
-        if (stressManager.stressCount >= 10)
+        if (stressManager.stressCount >= 10000)
         {
             uiManager.anxietyTabButton.SetActive(true);
             anxietyResourceEnabled = true;
@@ -107,7 +107,7 @@ public class IdleManager : MonoBehaviour
 
     internal void DepressionUnlock()
     {
-        if (anxietyCount >= 10)
+        if (anxietyCount >= 100000)
         {
             uiManager.depressionTabButton.SetActive(true);
             depressionResourceEnabled = true;

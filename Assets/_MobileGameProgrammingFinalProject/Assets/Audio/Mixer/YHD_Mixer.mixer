@@ -20,7 +20,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Audio
+  m_Name: Sound Effects
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: a88ab4102ef5a6b458412f4a96470755
   m_Children: []
@@ -85,7 +85,9 @@ AudioMixerController:
   - guid: 660a31974d2e27f4491a9bc86a2fb207
     name: YHD_Ambient
   - guid: 4283575e8cc5c284aa8a7b9ebdcd012e
-    name: YHD_Audio
+    name: YHD_SFX
+  - guid: 72f80ce17c9b38348a53a6e261499742
+    name: YHD_Master
   - guid: 975f43f37159f514f931f7c2a78cab2c
     name: YHD_Music
   m_AudioMixerGroupViews:
@@ -143,9 +145,13 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: b068927c39182344db2be501ab0a47a3
   m_FloatValues:
-    72f80ce17c9b38348a53a6e261499742: -5
-    975f43f37159f514f931f7c2a78cab2c: -5
-  m_TransitionOverrides: {}
+    72f80ce17c9b38348a53a6e261499742: 0
+    975f43f37159f514f931f7c2a78cab2c: 0
+  m_TransitionOverrides:
+    72f80ce17c9b38348a53a6e261499742: 6
+    975f43f37159f514f931f7c2a78cab2c: 6
+    660a31974d2e27f4491a9bc86a2fb207: 6
+    4283575e8cc5c284aa8a7b9ebdcd012e: 6
 --- !u!243 &5825241624227469096
 AudioMixerGroupController:
   m_ObjectHideFlags: 0

@@ -71,8 +71,8 @@ public class GameManager : MonoBehaviour
         // Idle Manager Variables
         // Anxiety Resource
         idleManager.anxietyCount = double.Parse(PlayerPrefs.GetString("anxietyCount", "0"));
-        idleManager.anxietyUpgradeCost = double.Parse(PlayerPrefs.GetString("anxietyUpgradeCost", "100"));
-        idleManager.anxietyUpgradeAmount = double.Parse(PlayerPrefs.GetString("anxietyUpgradeAmount", "0.1")); ;
+        idleManager.anxietyUpgradeCost = double.Parse(PlayerPrefs.GetString("anxietyUpgradeCost", "1500"));
+        idleManager.anxietyUpgradeAmount = double.Parse(PlayerPrefs.GetString("anxietyUpgradeAmount", "0.5")); ;
         idleManager.anxietyMultiplierAmount = double.Parse(PlayerPrefs.GetString("anxietyMultiplierAmount", "1"));
         idleManager.anxietyMultiplierCost = double.Parse(PlayerPrefs.GetString("anxietyMultiplierCost", "1500"));
         idleManager.anxietyResourceEnabled = PlayerPrefs.GetInt("anxietyResourceEnabled", 0) == 1;
