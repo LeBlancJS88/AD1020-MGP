@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     {
         Load();
         LoadAndCalculateResources();
+        Screen.orientation = ScreenOrientation.Portrait;
     }
 
     public void Load()
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour
 
         // Idle Manager Variables
         // Anxiety Resource
+        idleManager.anxietyUpgradeLevel = double.Parse(PlayerPrefs.GetString("anxietyUpgradeLevel", "0.1"), System.Globalization.CultureInfo.InvariantCulture);
         idleManager.anxietyCount = double.Parse(PlayerPrefs.GetString("anxietyCount", "0"), System.Globalization.CultureInfo.InvariantCulture);
         idleManager.anxietyUpgradeCost = double.Parse(PlayerPrefs.GetString("anxietyUpgradeCost", "1500"), System.Globalization.CultureInfo.InvariantCulture);
         idleManager.anxietyUpgradeAmount = double.Parse(PlayerPrefs.GetString("anxietyUpgradeAmount", "0.5"), System.Globalization.CultureInfo.InvariantCulture);
@@ -102,6 +104,7 @@ public class GameManager : MonoBehaviour
 
         // Idle Manager Variables
         // Anxiety Resource
+        PlayerPrefs.SetString("anxietyUpgradeLevel", idleManager.anxietyUpgradeLevel.ToString(CultureInfo.InvariantCulture));
         PlayerPrefs.SetString("anxietyCount", idleManager.anxietyCount.ToString(CultureInfo.InvariantCulture));
         PlayerPrefs.SetString("anxietyUpgradeCost", idleManager.anxietyUpgradeCost.ToString(CultureInfo.InvariantCulture));
         PlayerPrefs.SetString("anxietyUpgradeAmount", idleManager.anxietyUpgradeAmount.ToString(CultureInfo.InvariantCulture));

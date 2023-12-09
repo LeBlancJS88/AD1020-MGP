@@ -36,8 +36,8 @@ public class StressManager : MonoBehaviour
 
     public void Update()
     {
-        stressUpgradeText.text = "Increase Stress Load.\n Cost: " + stressUpgradeCost.ToString("F2") + "\n" + math.round(100* stressUpgradeAmount) / 100;
-        stressMultiplierText.text = "Stress Multiplier:\n Current: " + stressMultiplierAmount + "x" + "\n" + "Cost: " + stressMultiplierCost.ToString("F0");
+        stressUpgradeText.text = "Increase Stress Load \n + 0.1 \n" + "Current: + " + math.round(100* stressUpgradeAmount) / 100 + " / Tap \n" + "Cost: " + stressUpgradeCost.ToString("F2") + " Stress";
+        stressMultiplierText.text = "Increase Stress Multiplier \n" +" + 1 \n" + "Current: " + stressMultiplierAmount + "x" + "\n" + "Cost: " + stressMultiplierCost.ToString("F0") + " Stress";
         stressText.text = "Stress: " + stressCount.ToString("F2");
     }
 

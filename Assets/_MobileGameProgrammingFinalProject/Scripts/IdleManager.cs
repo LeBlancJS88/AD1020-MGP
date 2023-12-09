@@ -17,10 +17,11 @@ public class IdleManager : MonoBehaviour
     [SerializeField] internal TMP_Text anxietyMultiplierText;
     internal double anxietyCount;
 
+    internal double anxietyUpgradeLevel;
     internal double anxietyUpgradeCost;
+    internal double anxietyUpgradeAmount;
     internal double anxietyMultiplier;
     internal double anxietyMultiplierCost;
-    internal double anxietyUpgradeAmount;
     internal double anxietyMultiplierAmount;
     #endregion
 
@@ -138,9 +139,9 @@ public class IdleManager : MonoBehaviour
         if (stressManager.stressCount >= anxietyUpgradeCost && (stressManager.stressCount - anxietyUpgradeCost) >= 0)
         {
             stressManager.stressCount -= anxietyUpgradeCost;
-            anxietyUpgradeAmount *= 1.25;
+            anxietyUpgradeAmount += 0.10;
             anxietyUpgradeCost *= 1.5;
-            anxietyUpgradeText.text = "Overthink: \n" + "Cost: " + anxietyUpgradeCost.ToString("F2") + "\n" + anxietyUpgradeAmount.ToString("F2");
+            anxietyUpgradeText.text = "Start Overthinking \n" + " + " + anxietyUpgradeLevel.ToString("F2") + " Anxiety / Second"+ "\n" + "Current: " + anxietyUpgradeAmount.ToString("F2") + " / Second" + "\n Cost: " + anxietyUpgradeCost.ToString("F2") + " Stress";
         }
 
     }
@@ -152,7 +153,7 @@ public class IdleManager : MonoBehaviour
             anxietyCount -= anxietyMultiplierCost;
             anxietyMultiplierAmount += 1;
             anxietyMultiplierCost *= 2;
-            anxietyMultiplierText.text = "Stress Multiplier:\n " + "Current: " + anxietyMultiplierAmount + "x" + "\n" + "Cost: " + anxietyMultiplierCost.ToString("F0");
+            anxietyMultiplierText.text = "Stress Multiplier\n " + "Current: " + anxietyMultiplierAmount + "x" + "\n" + "Cost: " + anxietyMultiplierCost.ToString("F0");
         }
     }
     #endregion
@@ -166,7 +167,7 @@ public class IdleManager : MonoBehaviour
             anxietyCount -= depressionUpgradeCost;
             depressionUpgradeAmount *= 1.25;
             depressionUpgradeCost *= 1.5;
-            depressionUpgradeText.text = "Wallow: \n" + "Cost: " + depressionUpgradeCost.ToString("F2") + "\n" + depressionUpgradeAmount.ToString("F2");
+            depressionUpgradeText.text = "Begin Wallowing \n" + "+ 0.01 Depression / Second" + "\n" + "Current: " + "\n" + depressionUpgradeAmount.ToString("F2") + " / Second" + "\n Cost: " + depressionUpgradeCost.ToString("F2") ;
         }
     }
 
@@ -177,7 +178,7 @@ public class IdleManager : MonoBehaviour
             depressionCount -= depressionMultiplierCost;
             depressionMultiplierAmount += 1;
             depressionMultiplierCost *= 2;
-            depressionMultiplierText.text = "Self-sabotage:\n " + "Current: " + depressionMultiplierAmount + "x" + "\n" + "Cost: " + depressionMultiplierCost.ToString("F0");
+            depressionMultiplierText.text = "Begin Self Sabotaging \n" + "Depression Multiplier + 1 \n"+ "Current: " + depressionMultiplierAmount + "x" + "\n" + "Cost: " + depressionMultiplierCost.ToString("F0");
         }
     }
     #endregion

@@ -34,8 +34,8 @@ public class GeneratorManager : MonoBehaviour
             StressGeneration();
         }
 
-        stressGeneratorLevelOneButtonText.text = "Stress Generator Level One\n" + stressGeneratorLevelOneAmount.ToString("F2") + "\n" + stressGeneratorLevelOneCost.ToString("F0");
-        stressGeneratorLevelTwoButtonText.text = "Stress Generator Level Two\n" + stressGeneratorLevelTwoAmount.ToString("F2") + "\n" + stressGeneratorLevelTwoCost.ToString("F0");
+        stressGeneratorLevelOneButtonText.text = "Stress Generator 1 \n" + "+ 1 Stress / Second \n" + "Current: "+ stressGeneratorLevelOneAmount.ToString("F2") + "\n" + "Cost: " + stressGeneratorLevelOneCost.ToString("F0") + " Stress";
+        stressGeneratorLevelTwoButtonText.text = "Stress Generator 2 \n" + "+ 1 Gen1 / Second \n" + "Current: " + stressGeneratorLevelTwoAmount.ToString("F2") + "\n" + "Cost: " + stressGeneratorLevelTwoCost.ToString("F0") + " Stress";
     }
 
     public void StressGeneratorLevelOneClick()

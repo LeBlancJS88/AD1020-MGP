@@ -7,7 +7,7 @@ public class UITapHandler : MonoBehaviour, IPointerClickHandler
 {
     public StressManager stressManager;
     [SerializeField] internal TMP_Text stressTextPrefab;
-    private Canvas canvas; 
+    private Canvas canvas;
 
     private void Start()
     {
