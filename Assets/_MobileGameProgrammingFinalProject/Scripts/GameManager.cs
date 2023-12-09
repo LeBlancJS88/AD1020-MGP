@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
         idleManager.anxietyUpgradeLevel = double.Parse(PlayerPrefs.GetString("anxietyUpgradeLevel", "0.1"), System.Globalization.CultureInfo.InvariantCulture);
         idleManager.anxietyCount = double.Parse(PlayerPrefs.GetString("anxietyCount", "0"), System.Globalization.CultureInfo.InvariantCulture);
         idleManager.anxietyUpgradeCost = double.Parse(PlayerPrefs.GetString("anxietyUpgradeCost", "1500"), System.Globalization.CultureInfo.InvariantCulture);
-        idleManager.anxietyUpgradeAmount = double.Parse(PlayerPrefs.GetString("anxietyUpgradeAmount", "0.5"), System.Globalization.CultureInfo.InvariantCulture);
+        idleManager.anxietyUpgradeAmount = double.Parse(PlayerPrefs.GetString("anxietyUpgradeAmount", "0.1"), System.Globalization.CultureInfo.InvariantCulture);
         idleManager.anxietyMultiplierAmount = double.Parse(PlayerPrefs.GetString("anxietyMultiplierAmount", "1"), System.Globalization.CultureInfo.InvariantCulture);
         idleManager.anxietyMultiplierCost = double.Parse(PlayerPrefs.GetString("anxietyMultiplierCost", "1500"), System.Globalization.CultureInfo.InvariantCulture);
         idleManager.anxietyResourceEnabled = PlayerPrefs.GetInt("anxietyResourceEnabled", 0) == 1;
